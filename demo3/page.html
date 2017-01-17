@@ -63,9 +63,9 @@
  	</style>
 </head>
 <body>
-<div id="app">
+<div id="app" v-clock>
 	
-	<div class="newTask" v-clock>
+	<div class="newTask" >
 		<i class="iconfont icon-todo"></i>
 		<p>A Todo List APP</p>
 		<input type="text" placeholder="请在这里输入待办事项" v-model="newTodo" v-on:keyup.enter="submit">
