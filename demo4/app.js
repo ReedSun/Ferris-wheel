@@ -42,6 +42,22 @@ var app = new Vue({
   		let index = this.todoList.indexOf(event)
   		this.todoList.splice(index,1)
   	},
+    changeToSignUp: function(event){
+      this.actionType = "signUp";
+      var btn = document.getElementsByClassName("btn")
+      for (var i=0;i<btn.length;i++) {
+        btn[i].setAttribute("class", "btn");
+      }     
+      event.target.setAttribute("class", "btn active")
+    },
+    changeToSignIn: function(){
+      this.actionType = "signIn";
+      var btn = document.getElementsByClassName("btn")
+      for (var i=0;i<btn.length;i++) {
+        btn[i].setAttribute("class", "btn");
+      }     
+      event.target.setAttribute("class", "btn active")    
+    },
     signUp: function(){
       var user = new AV.User();
       user.setUsername(this.formData.user);

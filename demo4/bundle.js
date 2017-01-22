@@ -98,6 +98,22 @@
 	      var index = this.todoList.indexOf(event);
 	      this.todoList.splice(index, 1);
 	    },
+	    changeToSignUp: function changeToSignUp(event) {
+	      this.actionType = "signUp";
+	      var btn = document.getElementsByClassName("btn");
+	      for (var i = 0; i < btn.length; i++) {
+	        btn[i].setAttribute("class", "btn");
+	      }
+	      event.target.setAttribute("class", "btn active");
+	    },
+	    changeToSignIn: function changeToSignIn() {
+	      this.actionType = "signIn";
+	      var btn = document.getElementsByClassName("btn");
+	      for (var i = 0; i < btn.length; i++) {
+	        btn[i].setAttribute("class", "btn");
+	      }
+	      event.target.setAttribute("class", "btn active");
+	    },
 	    signUp: function signUp() {
 	      var _this2 = this;
 
