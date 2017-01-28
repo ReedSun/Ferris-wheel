@@ -58,7 +58,7 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -66,6 +66,7 @@
 	exports.default = bar;
 	function bar() {
 	  alert('Hello Webpack!');
+	  document.write("Hello ReedSun");
 	}
 
 /***/ }
