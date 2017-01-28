@@ -74,36 +74,74 @@
 	    currentUser: null
 	  },
 	  created: function created() {
-	    var _this = this;
+	    this.currentUser = this.getCurrentUser();
+	    this.fetchTodos();
+	  },
+	  methods: {
+	    fetchTodos: function fetchTodos() {
+	      var _this = this;
 
-	    window.onbeforeunload = function () {
-	      var dataString = JSON.stringify(_this.todoList);
-	      var TodoFolder = _leancloudStorage2.default.Object.extend("TodoFolder");
-	      var todoFolder = new TodoFolder();
+	      if (this.currentUser) {
+	        var query = new _leancloudStorage2.default.Query("TodoFolder");
+	        query.find().then(function (todos) {
+	          var avAllTodos = todos[0];
+	          var id = avAllTodos.id;
+	          _this.todoList = JSON.parse(avAllTodos.attributes.content);
+	          _this.todoList.id = id;
+	        }, function (error) {
+	          console.log(error);
+	        });
+	      }
+	    },
+	    updateTodos: function updateTodos() {
+	      var dataString = JSON.stringify(this.todoList);
+	      var todoFolder = _leancloudStorage2.default.Object.createWithoutData("TodoFolder", this.todoList.id);
 	      todoFolder.set("content", dataString);
 	      todoFolder.save().then(function (todo) {
+	        console.log("更新成功");
+	      }, function (error) {
+	        console.log("更新失败");
+	      });
+	    },
+	    saveTodos: function saveTodos() {
+	      var _this2 = this;
+
+	      var dataString = JSON.stringify(this.todoList);
+	      var TodoFolder = _leancloudStorage2.default.Object.extend("TodoFolder");
+	      var todoFolder = new TodoFolder();
+	      var acl = new _leancloudStorage2.default.ACL();
+	      acl.setReadAccess(_leancloudStorage2.default.User.current(), true);
+	      acl.setWriteAccess(_leancloudStorage2.default.User.current(), true);
+	      todoFolder.set("content", dataString);
+	      todoFolder.setACL(acl);
+	      todoFolder.save().then(function (todo) {
+	        _this2.todoList.id = todo.id;
 	        console.log("保存成功");
 	      }, function (error) {
 	        console.log("保存失败");
 	      });
-	    };
-	    // let oldDataString = window.localStorage.getItem("myTodos")
-	    // let oldData = JSON.parse(oldDataString)
-	    // this.todoList = oldData || []
-	    this.currentUser = this.getCurrentUser();
-	  },
-	  methods: {
+	    },
+	    saveOrUpdateTodos: function saveOrUpdateTodos() {
+	      if (this.todoList.id) {
+	        this.updateTodos();
+	      } else {
+	        this.saveTodos();
+	      }
+	    },
 	    submit: function submit(event) {
+	      console.log(this.todoList);
 	      this.todoList.push({
 	        title: this.newTodo,
 	        createAt: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
 	        done: false
 	      });
+	      this.saveOrUpdateTodos();
 	      this.newTodo = "";
 	    },
 	    deleteTodo: function deleteTodo(event) {
 	      var index = this.todoList.indexOf(event);
 	      this.todoList.splice(index, 1);
+	      this.saveOrUpdateTodos();
 	    },
 	    changeToSignUp: function changeToSignUp(event) {
 	      this.actionType = "signUp";
@@ -122,22 +160,23 @@
 	      event.target.setAttribute("class", "btn active");
 	    },
 	    signUp: function signUp() {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      var user = new _leancloudStorage2.default.User();
 	      user.setUsername(this.formData.user);
 	      user.setPassword(this.formData.password);
 	      user.signUp().then(function (loginedUser) {
-	        _this2.currentUser = _this2.getCurrentUser();
+	        _this3.currentUser = _this3.getCurrentUser();
 	      }, function (error) {
 	        alert("注册失败");
 	      });
 	    },
 	    login: function login() {
-	      var _this3 = this;
+	      var _this4 = this;
 
 	      _leancloudStorage2.default.User.logIn(this.formData.user, this.formData.password).then(function (loginedUser) {
-	        _this3.currentUser = _this3.getCurrentUser();
+	        _this4.currentUser = _this4.getCurrentUser();
+	        _this4.fetchTodos();
 	      }, function (error) {
 	        alert("登陆失败");
 	      });
