@@ -28,6 +28,7 @@ export default {
   background: #EAEBEC;
   display: flex;
   flex-direction: column;
+  min-width: 1024px;
 }
 main {
   flex-grow: 1;
