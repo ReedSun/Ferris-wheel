@@ -6,6 +6,7 @@
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
+  min-width: 1024px;
 }
 main {
   -ms-flex-positive: 1;
@@ -542,4 +543,4 @@ a[data-v-524cd6bc] {
   color: #42b983;
 }
 
-/*# sourceMappingURL=app.8c39ee0fe8d322e6b1dfd5bc1c678282.css.map*/
+/*# sourceMappingURL=app.d71cc4986158c7d173e99f7b1772d0b6.css.map*/
