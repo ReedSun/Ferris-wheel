@@ -25,15 +25,19 @@ export default {
 <style>
 #app {
   height: 100vh;
-  background: #ccc;
+  background: #EAEBEC;
   display: flex;
   flex-direction: column;
 }
 main {
   flex-grow: 1;
   min-width: 1024px;
-  max-height: 1440px;
-  justify-content: space-around;
+  max-width: 1440px;
   display: flex !important;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin: 16px 0;
+  width: 100%;
+  align-self: center;
 }
 </style>
