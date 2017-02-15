@@ -22,23 +22,23 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   height: 100vh;
   background: #EAEBEC;
   display: flex;
   flex-direction: column;
   min-width: 1024px;
-}
-main {
-  flex-grow: 1;
-  min-width: 1024px;
-  max-width: 1440px;
-  display: flex !important;
-  justify-content: space-between;
-  padding: 0 16px;
-  margin: 16px 0;
-  width: 100%;
-  align-self: center;
+  >main {
+    flex-grow: 1;
+    min-width: 1024px;
+    max-width: 1440px;
+    display: flex !important;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin: 16px 0;
+    width: 100%;
+    align-self: center;    
+  }
 }
 </style>
