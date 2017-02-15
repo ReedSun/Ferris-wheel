@@ -8,20 +8,20 @@
       flex-direction: column;
   min-width: 1024px;
 }
-main {
-  -ms-flex-positive: 1;
-      flex-grow: 1;
-  min-width: 1024px;
-  max-width: 1440px;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  padding: 0 16px;
-  margin: 16px 0;
-  width: 100%;
-  -ms-flex-item-align: center;
-      align-self: center;
+#app > main {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    min-width: 1024px;
+    max-width: 1440px;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding: 0 16px;
+    margin: 16px 0;
+    width: 100%;
+    -ms-flex-item-align: center;
+        align-self: center;
 }
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
@@ -492,32 +492,110 @@ template {
 *::after, *::before {
 	box-sizing: border-box;
 }
-#topbar {
-	background: #fff;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+#topbar[data-v-a0a88fb8] {
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
 }
-#topbar>.wrapper {
-	min-width: 1024px;
-	max-width: 1440px;
-	margin: 0 auto;
-	height: 64px;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-pack: justify;
-	    justify-content: space-between;
-	-ms-flex-align: center;
-	    align-items: center;
-	padding: 0 16px;
+#topbar > .wrapper[data-v-a0a88fb8] {
+    min-width: 1024px;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 64px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 0 16px;
 }
-#topbar .logo {
-	font-size: 24px;
-	color: #000;
+#topbar .logo[data-v-a0a88fb8] {
+    font-size: 24px;
+    color: #000;
+}
+#topbar button[data-v-a0a88fb8] {
+    width: 72px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    background: #ddd;
+    color: #222;
+}
+#topbar button[data-v-a0a88fb8]:hover {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+#topbar button.primary[data-v-a0a88fb8] {
+      background: #02af5f;
+      color: white;
 }
 
-#resume-editor {
-	width: 35%;
-	background: #fff;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25)
+#resume-editor[data-v-53358100] {
+  width: 35%;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  overflow: hidden;
+}
+#resume-editor > nav[data-v-53358100] {
+    width: 80px;
+    background: black;
+    color: white;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+}
+#resume-editor > nav > ol > li[data-v-53358100] {
+      height: 48px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      cursor: pointer;
+}
+#resume-editor > nav > ol > li.active[data-v-53358100] {
+        background: white;
+        color: black;
+}
+#resume-editor > nav > ol > li svg[data-v-53358100] {
+        height: 24px;
+        width: 24px;
+        fill: currentColor;
+        vertical-align: -0.1em;
+        font-size: 16px;
+}
+#resume-editor > .panels[data-v-53358100] {
+    overflow: auto;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+}
+#resume-editor > .panels > li[data-v-53358100] {
+      padding: 24px;
+}
+#resume-editor > .panels > li > .panels-field label[data-v-53358100] {
+        display: block;
+}
+#resume-editor > .panels > li > .panels-field input[type=text][data-v-53358100] {
+        margin: 16px 0;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+        width: 100%;
+        height: 40px;
+        padding: 0 8px;
+}
+#resume-editor > .panels > li > .panels-field hr[data-v-53358100] {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 24px 0;
+}
+ol[data-v-53358100] {
+  list-style: none;
 }
 
 #resume-preview {
@@ -543,4 +621,4 @@ a[data-v-524cd6bc] {
   color: #42b983;
 }
 
-/*# sourceMappingURL=app.d71cc4986158c7d173e99f7b1772d0b6.css.map*/
+/*# sourceMappingURL=app.f93e10a9b9974f8ad86a40ef342d2ed6.css.map*/

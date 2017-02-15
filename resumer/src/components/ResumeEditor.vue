@@ -13,10 +13,24 @@
 			</ol>
 		</nav>
 		<ol class="panels">
-		<li v-for="item in resume.config"
-			v-show="item === selected"
-		>
-			{{resume[item.name]}}	
+			<li v-for="item in resume.config"
+				v-show="item === selected"
+			>
+				<div class="panels-field">
+					<div v-if="resume[item.name] instanceof Array">
+						<div v-for="(subitem, subindex) in resume[item.name]">	
+							<div v-for="(value,key) in subitem">
+								<label>{{key}}</label>
+								<input type="text" v-model="resume[item.name][subindex][key]">
+							</div>
+							<hr>
+						</div>
+					</div>
+					<div v-else  v-for="(value, key) in resume[item.name]">
+						<label>{{key}}</label>
+						<input type="text" v-model="resume[item.name][key]">	
+					</div>
+				</div>		
 		</li>
 		</ol>
 	</div>
@@ -42,22 +56,35 @@ export default {
 				city: '',
 				title: ''
 			},
-		'work history': {
-			a:1,
-			b:2,
-			c:3
-		},
-		education: "education",
-		project: "project",
-		award: "award",
-		contacts: "contacts",
-		others: "others"
+		'work history': [
+			{conpany: "Tesla", content: "我的第一份工作经历"},
+			{conpany: "Google", content: "我的第二份工作经历"}
+		],
+		education: [
+			{school: "本科", content: "我的本科经历"},
+			{school: "研究生", content: "我的研究生经历"}
+		],
+		project: [
+			{name: "projectA", content: "我的项目A"},
+			{name: "projectB", content: "我的项目B"}
+		],
+		award: [
+			{name: "awardA", content: "我取得的奖项A"},
+			{name: "awardB", content: "我取得的奖项B"}
+		],
+		contacts: [
+			{"Contact way": "Contact way A", content: "联系方式A"},
+			{"Contact way": "Contact way B", content: "联系方式B"}
+		],
+		others: [
+			{"others": ""}
+		]
 		}
 	}
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	#resume-editor {
 		width: 35%;
 		background: #fff;
@@ -89,6 +116,31 @@ export default {
 						fill: currentColor;
 						vertical-align: -0.1em;
 						font-size: 16px;
+					}
+				}
+			}
+		}
+		>.panels {
+			overflow: auto;
+			flex-grow: 1;
+			>li {
+				padding: 24px;
+				>.panels-field {
+					label {
+						display: block;
+					}
+					input[type=text]{
+						margin: 16px 0;
+						border: 1px solid #ddd;
+						box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.25);
+						width: 100%;
+						height: 40px;
+						padding: 0 8px;
+					}
+					hr {
+						border: none;
+						border-top: 1px solid #ddd;
+						margin: 24px 0;
 					}
 				}
 			}
