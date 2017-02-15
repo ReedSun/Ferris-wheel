@@ -16,9 +16,15 @@ import './assets/reset.css'
 import Topbar from './components/Topbar'
 import ResumeEditor from './components/ResumeEditor'
 import ResumePreview from './components/ResumePreview'
+import icons from './assets/icons'
 export default {
   name: 'app',
-  components: {Topbar, ResumeEditor, ResumePreview}
+  components: {Topbar, ResumeEditor, ResumePreview},
+  created(){
+    // 与innerHTML类似，可以在指定的地方插入HTML内容
+    // 第一个参数有四个选项"beforeBegin" "afterEnd" "afterBegin" "beforeEnd"分别指在elem的开始标签之前、结束标签之后、开始标签之后、结束标签之前插入htmlStr
+    document.body.insertAdjacentHTML('afterbegin', icons)
+  }
 }
 </script>
 

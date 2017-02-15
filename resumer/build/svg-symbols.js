@@ -21,7 +21,7 @@ let symbols = svgFiles.map(function(filename){
 	// 第二参数为过滤掉的字符(比如文件名为，xxx.html，第二个参数为'.html'，则输出xxx)
 	let name = path.basename(filename, '.svg');
 	return fileContent
-		.replace(/<\?.+?\?/g, '') //去掉<?...?>
+		.replace(/<\?.+?\?>/g, '') //去掉<?...?>
 		.replace(/<!.+?>/g, '')  //去掉<!...>
 		.replace(/version=".+?"/g, '') //去掉version="..."
 		.replace(/xmlns=".+?"/g, '') //去掉xmlns="..."
