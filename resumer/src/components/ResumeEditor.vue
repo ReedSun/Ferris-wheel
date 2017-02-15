@@ -16,7 +16,7 @@
 		<li v-for="item in resume.config"
 			v-show="item === selected"
 		>
-			{{resume[item]}}	
+			{{resume[item.name]}}	
 		</li>
 		</ol>
 	</div>
@@ -69,6 +69,7 @@ export default {
 			width: 80px;
 			background: black;
 			color: white;
+			flex-shrink: 0;
 			>ol {
 				>li {
 					height: 48px;
