@@ -2,16 +2,18 @@
 	<div id="resume-editor">
 		<nav>
 			<ol>
-			<li v-for="(item,index) in resume.visibleItems"
+			<li v-for="(item,index) in resume.config"
 				v-bind:class="{active: item === selected}"
 				v-on:click="selected = item"
 			>
-				{{index}}
+				<svg>
+					<use v-bind:href='`#icon-${item.icon}`'></use>
+				</svg>
 			</li>
 			</ol>
 		</nav>
 		<ol class="panels">
-		<li v-for="item in resume.visibleItems"
+		<li v-for="item in resume.config"
 			v-show="item === selected"
 		>
 			{{resume[item]}}	
@@ -26,8 +28,16 @@ export default {
     return {
 		selected: "work history",
 		resume: {
-			visibleItems: ['bio', 'work history', 'education', 'project', 'award', 'contacts', 'others'],
-		bio:  {
+			config: [
+				{name: "profile", icon: "id"},
+				{name: "work history", icon: "work"},
+				{name: "education", icon: "book"},
+				{name: "project", icon: "heart"},
+				{name: "award", icon: "cup"},
+				{name: "contacts", icon: "phone"},
+				{name: "others", icon: "add"}
+			],
+		profile: {
 				name: '',
 				city: '',
 				title: ''
@@ -37,11 +47,11 @@ export default {
 			b:2,
 			c:3
 		},
-		education: [],
-		project: [],
-		award: [],
-		contacts: [],
-		other: []
+		education: "education",
+		project: "project",
+		award: "award",
+		contacts: "contacts",
+		others: "others"
 		}
 	}
   }
@@ -71,6 +81,13 @@ export default {
 					&.active {
 						background: white;
 						color: black;
+					}
+					svg {
+						height: 24px;
+						width: 24px;
+						fill: currentColor;
+						vertical-align: -0.1em;
+						font-size: 16px;
 					}
 				}
 			}
