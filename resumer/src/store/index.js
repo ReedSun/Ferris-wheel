@@ -26,23 +26,23 @@ const store = new Vuex.Store({
 				{公司: "Google", 职位: "前端工程师", 开始时间:"2012.10", 结束时间:"至今", 说明: "我真的很厉害"}
 			],
 			education: [
-				{school: "青岛家里蹲大学", major: "计算机科学与技术", content: "本科"},
-				{school: "青岛家里蹲研究院", major: "计算机科学与技术", content: "研究生"}
+				{学校: "青岛家里蹲大学", 专业: "计算机科学与技术", 学历: "本科"},
+				{学校: "青岛家里蹲研究院", 专业: "计算机科学与技术", 学历: "硕士"}
 			],
 			project: [
-				{name: "projectA", content: "我的项目A"},
-				{name: "projectB", content: "我的项目B"}
+				{项目名: "超厉害的项目1", 项目描述: "我的项目A"},
+				{项目名: "超厉害的项目2", 项目描述: "我的项目B"}
 			],
 			award: [
-				{name: "awardA", content: "我取得的奖项A"},
-				{name: "awardB", content: "我取得的奖项B"}
+				{奖项名: "awardA", 奖项描述: "我取得的奖项A"},
+				{奖项名: "awardB", 奖项描述: "我取得的奖项B"}
 			],
 			contacts: [
-				{"Contact way": "Contact way A", content: "联系方式A"},
-				{"Contact way": "Contact way B", content: "联系方式B"}
+				{联系方式:"手机", 号码: "12345678910"},
+				{联系方式: "邮箱", 号码: "superreedsun@gmail.com"}
 			],
 			others: [
-				{"others": ""}
+				{其它信息: "我！哈哈哈哈~"}
 			]
 		}
 	},

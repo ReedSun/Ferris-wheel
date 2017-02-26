@@ -599,11 +599,60 @@ ol[data-v-53358100] {
 }
 
 #resume-preview {
-	background: #fff;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
-	-ms-flex-positive: 1;
-	    flex-grow: 1;
-	margin-left: 16px;
+  overflow: auto;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  margin-left: 16px;
+  padding: 2em;
+  color: #333;
+  line-height: 1.2;
+}
+#resume-preview * {
+    box-sizing: border-box;
+    font-variant: normal;
+    font-weight: normal;
+}
+#resume-preview ol, #resume-preview li {
+    list-style: none;
+}
+#resume-preview section + section {
+    margin-top: 2em;
+}
+#resume-preview p {
+    white-space: pre-line;
+}
+#resume-preview section > h2:first-child {
+    background: #ddd;
+    display: inline-block;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+#resume-preview section[data-name="profile"] > h1 {
+    margin: 0.1em 0;
+    font-size: 4em;
+}
+#resume-preview section[data-name="workHistory"] li + li,
+  #resume-preview section[data-name="project"] li + li,
+  #resume-preview section[data-name="award"] li + li {
+    margin-top: 1em;
+}
+#resume-preview section[data-name="workHistory"] li h5,
+  #resume-preview section[data-name="project"] li h5,
+  #resume-preview section[data-name="award"] li h5 {
+    border-bottom: 1px solid #999;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.3em;
+}
+#resume-preview section[data-name="education"] li {
+    line-height: 1.5;
+}
+#resume-preview section[data-name="education"] li + li {
+    margin-top: 1em;
+}
+#resume-preview section[data-name="contacts"] td:first-child {
+    padding-right: 1em;
 }
 
 h1[data-v-524cd6bc], h2[data-v-524cd6bc] {
@@ -621,4 +670,4 @@ a[data-v-524cd6bc] {
   color: #42b983;
 }
 
-/*# sourceMappingURL=app.f93e10a9b9974f8ad86a40ef342d2ed6.css.map*/
+/*# sourceMappingURL=app.088d843ded9f69b61a31f39bee3cd22d.css.map*/
