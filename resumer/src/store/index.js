@@ -4,11 +4,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
-		selected: "work history",
+		selected: "workHistory",
 		resume: {
 			config: [
 				{name: "profile", icon: "id"},
-				{name: "work history", icon: "work"},
+				{name: "workHistory", icon: "work"},
 				{name: "education", icon: "book"},
 				{name: "project", icon: "heart"},
 				{name: "award", icon: "cup"},
@@ -16,17 +16,18 @@ const store = new Vuex.Store({
 				{name: "others", icon: "add"}
 			],
 			profile: {
-				name: '',
-				city: '',
-				title: ''
+				姓名: 'ReedSun',
+				城市: '青岛',
+				职位: '前端工程师',
+				生日: '2017.02.26'
 			},
-			'work history': [
-				{conpany: "Tesla", content: "我的第一份工作经历"},
-				{conpany: "Google", content: "我的第二份工作经历"}
+			workHistory: [
+				{公司: "Tesla", 职位: "前端工程师", 开始时间:"2008.01", 结束时间:"2012.09", 说明: "我很厉害"},
+				{公司: "Google", 职位: "前端工程师", 开始时间:"2012.10", 结束时间:"至今", 说明: "我真的很厉害"}
 			],
 			education: [
-				{school: "本科", content: "我的本科经历"},
-				{school: "研究生", content: "我的研究生经历"}
+				{school: "青岛家里蹲大学", major: "计算机科学与技术", content: "本科"},
+				{school: "青岛家里蹲研究院", major: "计算机科学与技术", content: "研究生"}
 			],
 			project: [
 				{name: "projectA", content: "我的项目A"},

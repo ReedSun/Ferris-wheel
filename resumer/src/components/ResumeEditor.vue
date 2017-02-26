@@ -31,7 +31,7 @@
 						<input type="text" v-model="resume[item.name][key]">	
 					</div>
 				</div>		
-		</li>
+			</li>
 		</ol>
 	</div>
 </template>
