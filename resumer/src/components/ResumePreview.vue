@@ -1,12 +1,24 @@
 <template>
 	<div id="resume-preview">
 		<p>I am Resume Preview</p>
+		<p>{{count}}</p>
+		<p><button @click="add">click</button></p>
 	</div>
 </template>
 
 <script>
 export default {
-  name: 'ResumePreview'
+  name: 'ResumePreview',
+  computed: {
+  	count(){
+  		return this.$store.state.count
+  	}
+  },
+  methods: {
+  	add(){
+  		this.$store.commit("increment")
+  	}
+  }
 }
 </script>
 

@@ -17,8 +17,10 @@ import Topbar from './components/Topbar'
 import ResumeEditor from './components/ResumeEditor'
 import ResumePreview from './components/ResumePreview'
 import icons from './assets/icons'
+import store from './store/index'
 export default {
   name: 'app',
+  store,
   components: {Topbar, ResumeEditor, ResumePreview},
   created(){
     // 与innerHTML类似，可以在指定的地方插入HTML内容
